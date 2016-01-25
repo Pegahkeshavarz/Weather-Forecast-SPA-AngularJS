@@ -63,13 +63,25 @@ weatherApp.controller('forecastController', ['$scope','$resource','$routeParams'
         return new Date(dt * 1000);
     };
     
-    
-    
-    
-    console.log($scope.weatherResult);
-    
-    
-    
-    
+    console.log($scope.weatherResult);  
     
 }]);
+
+//Directives
+
+weatherApp.directive('weatherReport', function(){
+  return{
+    restrict:'AECM',
+    templateUrl:'directives/weatherReport.html',
+    replace:'true',
+    
+      scope: {
+          weatherDay : '=',  //w
+          convertToStandard:'&', //convertToFahrenheit
+          convertToDate:'&', //convertToDate
+          dateFormat: '@'//format
+         
+      }
+   }
+
+});
